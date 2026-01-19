@@ -58,7 +58,7 @@ const Home: React.FC = () => {
       <main className="min-h-screen flex flex-col items-center justify-center px-6 space-y-16 animate-in fade-in duration-1000">
         
         {/* LOGO SECTION */}
-        <div className="lux-shimmer p-4 rounded-full transition-transform duration-700 hover:scale-105">
+        <div className="p-4 rounded-full transition-transform duration-700 hover:scale-105">
           <a href="https://www.freecooperation.cz" target="_blank" rel="noopener noreferrer">
             <img 
               src={logoSrc} 
