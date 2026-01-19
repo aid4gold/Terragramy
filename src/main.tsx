@@ -4,12 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import App from '../App';
 import './index.css';
 
-// Force dark mode on app startup
-const htmlElement = document.documentElement;
-htmlElement.classList.add('dark');
-const bodyElement = document.body;
-bodyElement.classList.add('dark');
-
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error("Could not find root element to mount to");

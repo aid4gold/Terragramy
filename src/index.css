@@ -6,11 +6,6 @@ html, body, #root {
   background-color: var(--bg) !important; /* Force background from theme */
 }
 
-html {
-  /* Always use dark mode */
-  background-color: #0A0A0C !important;
-}
-
 html { 
   scroll-behavior: smooth; 
   background-image:
@@ -53,10 +48,7 @@ html {
 }
 
 body {
-  /* Always use dark mode as default */
-  color: var(--text); /* Use dark mode text color */
-  background-color: #0A0A0C; /* Dark background */
-  background-image: radial-gradient(circle at center, #111116 0%, #050507 100%);
+  color: var(--text); /* Use theme text color */
 }
 
 body.dark {
