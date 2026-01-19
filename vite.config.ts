@@ -1,24 +1,35 @@
-import path from 'path';
-import { defineConfig, loadEnv } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig, loadEnv } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
 
 export default defineConfig(({ mode }) => {
-    const env = loadEnv(mode, '.', '');
-    return {
-      server: {
-        port: 3000,
-        host: '0.0.0.0',
+  // načtení env proměnných (pokud nějaké máš)
+  const env = loadEnv(mode, process.cwd(), '')
+
+  return {
+    // 🔑 KLÍČOVÉ pro GitHub Pages (repo name)
+    base: '/Terragramy/',
+
+    plugins: [react()],
+
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
       },
-      base: mode === "production" ? "/projeQt/" : "/",
-      plugins: [react()],
-      define: {
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
-      },
-      resolve: {
-        alias: {
-          '@': path.resolve(__dirname, '.'),
-        }
-      }
-    };
-});
+    },
+
+    build: {
+      outDir: 'dist',
+      sourcemap: false,
+    },
+
+    server: {
+      port: 5173,
+      open: true,
+    },
+
+    define: {
+      __APP_ENV__: JSON.stringify(env.APP_ENV),
+    },
+  }
+})
